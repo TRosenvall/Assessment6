@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Mark the class as Codable for persistence
 class Entry: Codable {
     // Class Properties
     let name: String
@@ -18,6 +19,7 @@ class Entry: Codable {
     }
 }
 
+// Set the class as equatable in order to allow deletion of entries.
 extension Entry: Equatable {
     static func == (lhs: Entry, rhs: Entry) -> Bool {
         return lhs.name == rhs.name

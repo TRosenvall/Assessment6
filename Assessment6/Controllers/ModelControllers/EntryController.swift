@@ -91,12 +91,8 @@ class EntryController {
         // Find the index of the entry to remove and remove that entry.
         guard let index = entries.firstIndex(of: entry) else {return}
         entries.remove(at: index)
-        
-        // Keep the groups array set to the correct amount, one group for every two people.
-        if entries.count % 2 == 0 {
-            groups.removeLast()
-        }
-        
+        // Reset the number of groups
+        setGroups()
         // Save
         saveToPersistentStore()
     }
